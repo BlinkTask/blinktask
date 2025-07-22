@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blink Task | Smart Digital Services by Abhishek</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Enhanced Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(1rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-2rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(2rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes floatingAnimation {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 0.6s ease-out forwards;
+        }
+
+        .animate-scaleIn {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+
+        .animate-floating {
+            animation: floatingAnimation 3s ease-in-out infinite;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(1rem);
+        }
+
+        /* Modern Color Theme */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gradient-border {
+            position: relative;
+            border: double 1px transparent;
+            border-radius: 0.5rem;
+            background-image: linear-gradient(white, white), 
+                            linear-gradient(45deg, #f56040, #e1306c, #833ab4);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .hover-lift {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+    <script>
+        // Intersection Observer for fade-in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fadeIn');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-section').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</head>
+<body class="font-['Inter'] text-gray-800 bg-white">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 px-4">
+        <div class="text-center">
+            <div class="fade-in-section">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm a student freelancer from BIT Sindri!</h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-4">Smart Digital Services by a Student, Powered by AI.</p>
+                <p class="text-lg text-indigo-600 font-medium mb-8 animate-pulse">Turning Ideas into Reality, One Task at a Time</p>
+            </div>
+            <div class="space-y-3 mb-8">
+                <p class="text-gray-600 fade-in-section" style="animation-delay: 0.3s">✨ Quality Work at Student-Friendly Prices</p>
+                <p class="text-gray-600 fade-in-section" style="animation-delay: 0.6s">🚀 24-Hour Delivery on Most Services</p>
+                <p class="text-gray-600 fade-in-section" style="animation-delay: 0.9s">💡 AI-Enhanced, Human-Perfected Results</p>
+            </div>
+            <a href="#services" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold transition-transform duration-200 hover:scale-105 fade-in-section" style="animation-delay: 1.2s">
+                Explore Services
+            </a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 px-4 md:px-8 max-w-6xl mx-auto">
+        <div class="fade-in-section">
+            <h2 class="text-3xl font-bold mb-8">About Me</h2>
+            <p class="mb-6">Hi, I'm Abhishek, the founder of Blink Task – a brand-new platform where AI meets speed, quality, and creativity. I'm a 19-year-old student stepping into the tech world with a simple mission: Deliver small but important tasks with 100% focus, precision, and trust.</p>
+
+            <h3 class="text-2xl font-bold mt-12 mb-4">Why Blink Task Exists</h3>
+            <ul class="space-y-3 list-disc pl-5">
+                <li>I know trusting a new website isn't easy – so I work harder on every single project to earn it.</li>
+                <li>I combine AI tools (ChatGPT, Canva, Cursor AI) with manual reviews to ensure every delivery feels unique and human.</li>
+                <li>I believe in fast turnaround, clear communication, and zero overpromises – you'll always know what to expect.</li>
+            </ul>
+
+            <h3 class="text-2xl font-bold mt-12 mb-4">Why You Can Trust Me</h3>
+            <ul class="space-y-3 list-disc pl-5">
+                <li><strong>New, but Fully Dedicated:</strong> I treat every task like it's my portfolio's showcase.</li>
+                <li><strong>Transparent Process:</strong> I share drafts, templates, or samples before finalizing.</li>
+                <li><strong>Speed & Quality:</strong> Most tasks are delivered within 24 hours.</li>
+                <li><strong>Free Revisions:</strong> Your satisfaction matters – one free revision included.</li>
+                <li><strong>Clear Pricing:</strong> No hidden costs – flat, upfront pricing.</li>
+            </ul>
+
+            <h3 class="text-2xl font-bold mt-12 mb-4">My Promise to Clients</h3>
+            <ul class="space-y-3 list-disc pl-5">
+                <li>I'll communicate openly about timelines and requirements.</li>
+                <li>I'll deliver polished work using AI for speed but human editing for quality.</li>
+                <li>I'll treat every client as my first priority, because right now, every client counts.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 md:px-8 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 text-center fade-in-section">Services</h2>
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <p class="text-gray-600 fade-in-section mb-4" style="animation-delay: 0.3s">
+                    "Your Vision + My Skills + AI Magic = Perfect Results"
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full fade-in-section" style="animation-delay: 0.4s">✓ Free Revisions</span>
+                    <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full fade-in-section" style="animation-delay: 0.5s">✓ Money-Back Guarantee</span>
+                    <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full fade-in-section" style="animation-delay: 0.6s">✓ 24/7 Support</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Cards -->
+                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                    <div class="flex items-start mb-4">
+                        <span class="text-2xl mr-3">📝</span>
+                        <h3 class="text-xl font-semibold">Resume & CV Creation</h3>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">Price: ₹299–₹499 | Delivery: 24 hours</p>
+                    <p>Canva/MS Word templates + ChatGPT to write clean, job-specific content.</p>
+                </div>
+
+                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                    <div class="flex items-start mb-4">
+                        <span class="text-2xl mr-3">💼</span>
+                        <h3 class="text-xl font-semibold">LinkedIn Profile Optimization</h3>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">Price: ₹500–₹1,000 | Delivery: 24 hours</p>
+                    <p>Rewrite headlines, summaries, and skills using AI.</p>
+                </div>
+
+                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                    <div class="flex items-start mb-4">
+                        <span class="text-2xl mr-3">✍️</span>
+                        <h3 class="text-xl font-semibold">Cover Letter & SOP Writing</h3>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">Price: ₹299–₹499</p>
+                    <p>AI-assisted but customized for clarity and professionalism.</p>
+                </div>
+
+                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                    <div class="flex items-start mb-4">
+                        <span class="text-2xl mr-3">📱</span>
+                        <h3 class="text-xl font-semibold">Social Media Post Design</h3>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">Price: ₹300–₹500 (3–5 posts)</p>
+                    <p>Canva-designed posts for students or small brands.</p>
+                </div>
+
+                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                    <div class="flex items-start mb-4">
+                        <span class="text-2xl mr-3">🌐</span>
+                        <h3 class="text-xl font-semibold">Personal Portfolio Webpage</h3>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">Price: ₹999–₹1,999</p>
+                    <p>1-page responsive site using Cursor AI + Inter font.</p>
+                </div>
+
+                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                    <div class="flex items-start mb-4">
+                        <span class="text-2xl mr-3">🎯</span>
+                        <h3 class="text-xl font-semibold">Presentation Slides</h3>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">Price: ₹1,000–₹1,500 for 10–12 slides</p>
+                    <p>Script via ChatGPT, then custom designed in Canva.</p>
+                </div>
+
+                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                    <div class="flex items-start mb-4">
+                        <span class="text-2xl mr-3">🎨</span>
+                        <h3 class="text-xl font-semibold">Logo & Branding Pack</h3>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">Price: ₹500–₹1,000 per logo</p>
+                    <p>3 design variations, clean vector output.</p>
+                </div>
+
+                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                    <div class="flex items-start mb-4">
+                        <span class="text-2xl mr-3">💻</span>
+                        <h3 class="text-xl font-semibold">Small Code Snippets</h3>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">Price: ₹300–₹500</p>
+                    <p>Cursor-generated HTML/CSS/JS (e.g., navbars, buttons).</p>
+                </div>
+
+                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                    <div class="flex items-start mb-4">
+                        <span class="text-2xl mr-3">🔍</span>
+                        <h3 class="text-xl font-semibold">SEO Tags & Meta Description</h3>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">Price: ₹500–₹1,000 for 5 pages</p>
+                    <p>AI-optimized metadata to improve discoverability.</p>
+                </div>
+
+                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                    <div class="flex items-start mb-4">
+                        <span class="text-2xl mr-3">✍️</span>
+                        <h3 class="text-xl font-semibold">Blog/Content Writing</h3>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">Price: ₹500–₹1,000 per article</p>
+                    <p>Lightly edited AI drafts for blogs or landing pages (800–1,000 words).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Expect Section -->
+    <section class="py-20 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-6 text-center fade-in-section">What to Expect</h2>
+            <p class="text-center text-gray-600 mb-12 fade-in-section">As a new service, I'm excited to earn your trust through these commitments:</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in-section">
+                    <h3 class="font-semibold text-xl mb-4 text-indigo-600">Quality First</h3>
+                    <p class="text-gray-700">Every project will be crafted with attention to detail and reviewed multiple times before delivery. Your satisfaction is my priority.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in-section">
+                    <h3 class="font-semibold text-xl mb-4 text-indigo-600">Clear Communication</h3>
+                    <p class="text-gray-700">You'll receive regular updates, drafts for review, and quick responses to your messages. No surprises, just transparent collaboration.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in-section">
+                    <h3 class="font-semibold text-xl mb-4 text-indigo-600">Growing Together</h3>
+                    <p class="text-gray-700">As one of my first clients, your feedback will help shape Blink Task's services. Let's build something great together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="py-20 px-4 md:px-8 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 text-center fade-in-section">Blog</h2>
+            <p class="text-center mb-12 text-gray-600 fade-in-section">Coming Soon</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in-section">
+                    <h3 class="text-xl font-semibold">How I Use AI to Deliver Client Work</h3>
+                    <p class="text-gray-600 mt-2">Coming Soon</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in-section">
+                    <h3 class="text-xl font-semibold">How Blink Task Was Born</h3>
+                    <p class="text-gray-600 mt-2">Coming Soon</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in-section">
+                    <h3 class="text-xl font-semibold">Beginner-Friendly Tools for Freelancers</h3>
+                    <p class="text-gray-600 mt-2">Coming Soon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 md:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 text-center fade-in-section">Get in Touch</h2>
+            <div class="text-center mb-12">
+                <p class="text-gray-600 fade-in-section mb-4" style="animation-delay: 0.3s">Let's Create Something Amazing Together</p>
+                <div class="flex flex-wrap justify-center gap-6 text-sm">
+                    <div class="fade-in-section flex items-center gap-2" style="animation-delay: 0.4s">
+                        <span class="text-green-500">⚡</span>
+                        <span>Quick Response</span>
+                    </div>
+                    <div class="fade-in-section flex items-center gap-2" style="animation-delay: 0.5s">
+                        <span class="text-green-500">🤝</span>
+                        <span>Professional Service</span>
+                    </div>
+                    <div class="fade-in-section flex items-center gap-2" style="animation-delay: 0.6s">
+                        <span class="text-green-500">💯</span>
+                        <span>Satisfaction Guaranteed</span>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="fade-in-section">
+                    <form id="contactForm" onsubmit="sendToWhatsApp(event)" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="name">Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="email">Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="service">Service Interested In</label>
+                            <select id="service" name="service" required
+                                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                <option value="">Select a service</option>
+                                <option value="Resume & CV Creation">Resume & CV Creation</option>
+                                <option value="LinkedIn Profile Optimization">LinkedIn Profile Optimization</option>
+                                <option value="Cover Letter & SOP Writing">Cover Letter & SOP Writing</option>
+                                <option value="Social Media Post Design">Social Media Post Design</option>
+                                <option value="Personal Portfolio Webpage">Personal Portfolio Webpage</option>
+                                <option value="Presentation Slides">Presentation Slides</option>
+                                <option value="Logo & Branding Pack">Logo & Branding Pack</option>
+                                <option value="Small Code Snippets">Small Code Snippets</option>
+                                <option value="SEO Tags & Meta Description">SEO Tags & Meta Description</option>
+                                <option value="Blog/Content Writing">Blog/Content Writing</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                        </div>
+                        <style>
+                            @keyframes gradient {
+                                0% { background-position: 0% 50%; }
+                                50% { background-position: 100% 50%; }
+                                100% { background-position: 0% 50%; }
+                            }
+                            .rainbow-btn {
+                                background: linear-gradient(45deg, #f56040, #e1306c, #833ab4, #5851db, #405de6);
+                                background-size: 300% 300%;
+                                animation: gradient 5s ease infinite;
+                                transition: all 0.3s ease;
+                            }
+                            .rainbow-btn:hover {
+                                background-size: 400% 400%;
+                            }
+                        </style>
+                        <button type="submit"
+                            class="w-full rainbow-btn text-white px-6 py-3 rounded-lg font-semibold transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                    
+                    <script>
+                        function sendToWhatsApp(event) {
+                            event.preventDefault();
+                            
+                            // Get form values
+                            const name = document.getElementById('name').value;
+                            const email = document.getElementById('email').value;
+                            const service = document.getElementById('service').value;
+                            const message = document.getElementById('message').value;
+                            
+                            // Construct message
+                            const whatsappMessage = 
+                                `*New Inquiry from Blink Task Website*%0A%0A` +
+                                `*Name:* ${name}%0A` +
+                                `*Email:* ${email}%0A` +
+                                `*Service:* ${service}%0A` +
+                                `*Message:*%0A${message}`;
+                            
+                            // WhatsApp business URL with your number
+                            const whatsappURL = `https://wa.me/917991121048?text=${whatsappMessage}`;
+                            
+                            // Open WhatsApp in a new tab
+                            window.open(whatsappURL, '_blank');
+                            
+                            // Reset form
+                            document.getElementById('contactForm').reset();
+                        }
+                    </script>
+                </div>
+                <div class="fade-in-section">
+                    <h3 class="text-xl font-semibold mb-4">Quick Connect</h3>
+                    <p class="mb-6">WhatsApp preferred for faster response. Text only – calls disrupt focused work.</p>
+                    <div class="space-y-4">
+                        <a href="https://wa.me/917991121048"
+                            class="block bg-green-500 text-white px-6 py-3 rounded-lg font-semibold text-center transition-transform duration-200 hover:scale-105">
+                            Message on WhatsApp
+                        </a>
+                        <a href="mailto:abhishekdutta.contact@gmail.com"
+                            class="block bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold text-center transition-transform duration-200 hover:scale-105">
+                            Send Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <p>© 2024 Blink Task. Created by Abhishek.</p>
+        </div>
+    </footer>
+</body>
+</html> 
