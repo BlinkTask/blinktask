@@ -75,6 +75,111 @@
     
     <script defer src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Add 3D text effects */
+        .text-3d {
+            text-shadow: 
+                0 1px 0 rgb(255 255 255 / 0.4),
+                0 2px 0 rgb(255 255 255 / 0.3),
+                0 3px 0 rgb(255 255 255 / 0.2),
+                0 4px 8px rgba(0, 0, 0, 0.3),
+                0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-3d-dark {
+            text-shadow: 
+                0 1px 0 rgb(0 0 0 / 0.4),
+                0 2px 0 rgb(0 0 0 / 0.3),
+                0 3px 0 rgb(0 0 0 / 0.2),
+                0 4px 8px rgba(0, 0, 0, 0.3),
+                0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .text-glow-color {
+            text-shadow: 
+                0 0 10px rgba(96, 165, 250, 0.5),
+                0 0 20px rgba(96, 165, 250, 0.3),
+                0 0 30px rgba(96, 165, 250, 0.2);
+        }
+
+        /* Animated gradient backgrounds */
+        @keyframes heroGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes sectionGradientLight {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes sectionGradientDark {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-gradient {
+            background: linear-gradient(
+                -45deg, 
+                #60a5fa,  /* Light blue */
+                #818cf8,  /* Light indigo */
+                #a78bfa,  /* Light violet */
+                #c084fc,  /* Light purple */
+                #60a5fa   /* Back to light blue */
+            );
+            background-size: 400% 400%;
+            animation: heroGradient 12s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .section-gradient-light {
+            background: linear-gradient(
+                -45deg, 
+                #fef3c7,  /* Light yellow */
+                #fce7f3,  /* Light pink */
+                #dbeafe,  /* Light blue */
+                #f5f3ff,  /* Light purple */
+                #fef3c7   /* Back to light yellow */
+            );
+            background-size: 400% 400%;
+            animation: heroGradient 15s ease infinite;
+            position: relative;
+        }
+
+        .section-gradient-dark {
+            background: linear-gradient(
+                -45deg, 
+                #3b82f6,  /* Blue */
+                #8b5cf6,  /* Purple */
+                #ec4899,  /* Pink */
+                #6366f1,  /* Indigo */
+                #3b82f6   /* Back to blue */
+            );
+            background-size: 400% 400%;
+            animation: heroGradient 15s ease infinite;
+            position: relative;
+        }
+
         /* Enhanced Animations */
         @keyframes fadeIn {
             from {
@@ -176,6 +281,31 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
+
+        /* Update the rainbow button animation to match the new style */
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .rainbow-btn {
+            background: linear-gradient(
+                -45deg, 
+                #60a5fa,  /* Light blue */
+                #818cf8,  /* Light indigo */
+                #a78bfa,  /* Light violet */
+                #c084fc,  /* Light purple */
+                #60a5fa   /* Back to light blue */
+            );
+            background-size: 400% 400%;
+            animation: gradient 8s ease infinite;
+            transition: all 0.3s ease;
+        }
+        .rainbow-btn:hover {
+            background-size: 400% 400%;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
     </style>
     <script>
         // Intersection Observer for fade-in animations
@@ -196,166 +326,168 @@
 </head>
 <body class="font-['Inter'] text-gray-800 bg-white">
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 px-4">
-        <div class="text-center">
+    <section class="min-h-screen flex items-center justify-center hero-gradient px-4">
+        <div class="text-center text-white">
             <div class="fade-in-section">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm a student freelancer from BIT Sindri!</h1>
-                <p class="text-xl md:text-2xl text-gray-600 mb-4">Smart Digital Services by a Student, Powered by AI.</p>
-                <p class="text-lg text-indigo-600 font-medium mb-8 animate-pulse">Turning Ideas into Reality, One Task at a Time</p>
+                <p class="text-xl md:text-2xl text-gray-200 mb-4">Smart Digital Services by a Student, Powered by AI.</p>
+                <p class="text-lg text-indigo-200 font-medium mb-8 animate-pulse">Turning Ideas into Reality, One Task at a Time</p>
             </div>
             <div class="space-y-3 mb-8">
-                <p class="text-gray-600 fade-in-section" style="animation-delay: 0.3s">✨ Quality Work at Student-Friendly Prices</p>
-                <p class="text-gray-600 fade-in-section" style="animation-delay: 0.6s">🚀 24-Hour Delivery on Most Services</p>
-                <p class="text-gray-600 fade-in-section" style="animation-delay: 0.9s">💡 AI-Enhanced, Human-Perfected Results</p>
+                <p class="text-gray-200 fade-in-section" style="animation-delay: 0.3s">✨ Quality Work at Student-Friendly Prices</p>
+                <p class="text-gray-200 fade-in-section" style="animation-delay: 0.6s">🚀 24-Hour Delivery on Most Services</p>
+                <p class="text-gray-200 fade-in-section" style="animation-delay: 0.9s">💡 AI-Enhanced, Human-Perfected Results</p>
             </div>
-            <a href="#services" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold transition-transform duration-200 hover:scale-105 fade-in-section" style="animation-delay: 1.2s">
+            <a href="#services" class="inline-block bg-indigo-500 text-white px-8 py-3 rounded-lg font-semibold transition-transform duration-200 hover:scale-105 hover:bg-indigo-600 fade-in-section" style="animation-delay: 1.2s">
                 Explore Services
             </a>
         </div>
     </section>
 
     <!-- About Me Section -->
-    <section id="about" class="py-20 px-4 md:px-8 max-w-6xl mx-auto">
-        <div class="fade-in-section">
-            <h2 class="text-3xl font-bold mb-8">About Me</h2>
-            <p class="mb-6">Hi, I'm Abhishek, the founder of Blink Task – a brand-new platform where AI meets speed, quality, and creativity. I'm a 19-year-old student stepping into the tech world with a simple mission: Deliver small but important tasks with 100% focus, precision, and trust.</p>
+    <section id="about" class="py-20 px-4 md:px-8 section-gradient-light">
+        <div class="max-w-6xl mx-auto">
+            <div class="fade-in-section">
+                <h2 class="text-3xl font-bold mb-8">About Me</h2>
+                <p class="mb-6">Hi, I'm Abhishek, the founder of Blink Task – a brand-new platform where AI meets speed, quality, and creativity. I'm a 19-year-old student stepping into the tech world with a simple mission: Deliver small but important tasks with 100% focus, precision, and trust.</p>
 
-            <h3 class="text-2xl font-bold mt-12 mb-4">Why Blink Task Exists</h3>
-            <ul class="space-y-3 list-disc pl-5">
-                <li>I know trusting a new website isn't easy – so I work harder on every single project to earn it.</li>
-                <li>I combine AI tools (ChatGPT, Canva, Cursor AI) with manual reviews to ensure every delivery feels unique and human.</li>
-                <li>I believe in fast turnaround, clear communication, and zero overpromises – you'll always know what to expect.</li>
-            </ul>
+                <h3 class="text-2xl font-bold mt-12 mb-4">Why Blink Task Exists</h3>
+                <ul class="space-y-3 list-disc pl-5">
+                    <li>I know trusting a new website isn't easy – so I work harder on every single project to earn it.</li>
+                    <li>I combine AI tools (ChatGPT, Canva, Cursor AI) with manual reviews to ensure every delivery feels unique and human.</li>
+                    <li>I believe in fast turnaround, clear communication, and zero overpromises – you'll always know what to expect.</li>
+                </ul>
 
-            <h3 class="text-2xl font-bold mt-12 mb-4">Why You Can Trust Me</h3>
-            <ul class="space-y-3 list-disc pl-5">
-                <li><strong>New, but Fully Dedicated:</strong> I treat every task like it's my portfolio's showcase.</li>
-                <li><strong>Transparent Process:</strong> I share drafts, templates, or samples before finalizing.</li>
-                <li><strong>Speed & Quality:</strong> Most tasks are delivered within 24 hours.</li>
-                <li><strong>Free Revisions:</strong> Your satisfaction matters – one free revision included.</li>
-                <li><strong>Clear Pricing:</strong> No hidden costs – flat, upfront pricing.</li>
-            </ul>
+                <h3 class="text-2xl font-bold mt-12 mb-4">Why You Can Trust Me</h3>
+                <ul class="space-y-3 list-disc pl-5">
+                    <li><strong>New, but Fully Dedicated:</strong> I treat every task like it's my portfolio's showcase.</li>
+                    <li><strong>Transparent Process:</strong> I share drafts, templates, or samples before finalizing.</li>
+                    <li><strong>Speed & Quality:</strong> Most tasks are delivered within 24 hours.</li>
+                    <li><strong>Free Revisions:</strong> Your satisfaction matters – one free revision included.</li>
+                    <li><strong>Clear Pricing:</strong> No hidden costs – flat, upfront pricing.</li>
+                </ul>
 
-            <h3 class="text-2xl font-bold mt-12 mb-4">My Promise to Clients</h3>
-            <ul class="space-y-3 list-disc pl-5">
-                <li>I'll communicate openly about timelines and requirements.</li>
-                <li>I'll deliver polished work using AI for speed but human editing for quality.</li>
-                <li>I'll treat every client as my first priority, because right now, every client counts.</li>
-            </ul>
+                <h3 class="text-2xl font-bold mt-12 mb-4">My Promise to Clients</h3>
+                <ul class="space-y-3 list-disc pl-5">
+                    <li>I'll communicate openly about timelines and requirements.</li>
+                    <li>I'll deliver polished work using AI for speed but human editing for quality.</li>
+                    <li>I'll treat every client as my first priority, because right now, every client counts.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 px-4 md:px-8 bg-gray-50">
+    <section id="services" class="py-20 px-4 md:px-8 section-gradient-dark">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-4 text-center fade-in-section">Services</h2>
+            <h2 class="text-3xl font-bold mb-4 text-center fade-in-section text-white">Services</h2>
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <p class="text-gray-600 fade-in-section mb-4" style="animation-delay: 0.3s">
+                <p class="text-gray-200 fade-in-section mb-4" style="animation-delay: 0.3s">
                     "Your Vision + My Skills + AI Magic = Perfect Results"
                 </p>
                 <div class="flex flex-wrap justify-center gap-4 text-sm">
-                    <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full fade-in-section" style="animation-delay: 0.4s">✓ Free Revisions</span>
-                    <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full fade-in-section" style="animation-delay: 0.5s">✓ Money-Back Guarantee</span>
-                    <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full fade-in-section" style="animation-delay: 0.6s">✓ 24/7 Support</span>
+                    <span class="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full fade-in-section" style="animation-delay: 0.4s">✓ Free Revisions</span>
+                    <span class="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full fade-in-section" style="animation-delay: 0.5s">✓ Money-Back Guarantee</span>
+                    <span class="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full fade-in-section" style="animation-delay: 0.6s">✓ 24/7 Support</span>
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service Cards -->
-                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg fade-in-section border border-white/20">
                     <div class="flex items-start mb-4">
                         <span class="text-2xl mr-3">📝</span>
-                        <h3 class="text-xl font-semibold">Resume & CV Creation</h3>
+                        <h3 class="text-xl font-semibold text-white">Resume & CV Creation</h3>
                     </div>
-                    <p class="text-gray-600 italic mb-4">Price: ₹199–₹399 | Delivery: 24 hours</p>
-                    <p>Canva/MS Word templates + ChatGPT to write clean, job-specific content.</p>
+                    <p class="text-gray-200 italic mb-4">Price: ₹199–₹399 | Delivery: 24 hours</p>
+                    <p class="text-gray-200">Canva/MS Word templates + ChatGPT to write clean, job-specific content.</p>
                 </div>
 
-                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg fade-in-section border border-white/20">
                     <div class="flex items-start mb-4">
                         <span class="text-2xl mr-3">💼</span>
-                        <h3 class="text-xl font-semibold">LinkedIn Profile Optimization</h3>
+                        <h3 class="text-xl font-semibold text-white">LinkedIn Profile Optimization</h3>
                     </div>
-                    <p class="text-gray-600 italic mb-4">Price: ₹399–₹799 | Delivery: 24 hours</p>
-                    <p>Rewrite headlines, summaries, and skills using AI.</p>
+                    <p class="text-gray-200 italic mb-4">Price: ₹399–₹799 | Delivery: 24 hours</p>
+                    <p class="text-gray-200">Rewrite headlines, summaries, and skills using AI.</p>
                 </div>
 
-                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg fade-in-section border border-white/20">
                     <div class="flex items-start mb-4">
                         <span class="text-2xl mr-3">✍️</span>
-                        <h3 class="text-xl font-semibold">Cover Letter & SOP Writing</h3>
+                        <h3 class="text-xl font-semibold text-white">Cover Letter & SOP Writing</h3>
                     </div>
-                    <p class="text-gray-600 italic mb-4">Price: ₹199–₹399</p>
-                    <p>AI-assisted but customized for clarity and professionalism.</p>
+                    <p class="text-gray-200 italic mb-4">Price: ₹199–₹399</p>
+                    <p class="text-gray-200">AI-assisted but customized for clarity and professionalism.</p>
                 </div>
 
-                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg fade-in-section border border-white/20">
                     <div class="flex items-start mb-4">
                         <span class="text-2xl mr-3">📱</span>
-                        <h3 class="text-xl font-semibold">Social Media Post Design</h3>
+                        <h3 class="text-xl font-semibold text-white">Social Media Post Design</h3>
                     </div>
-                    <p class="text-gray-600 italic mb-4">Price: ₹199–₹399 (3–5 posts)</p>
-                    <p>Canva-designed posts for students or small brands.</p>
+                    <p class="text-gray-200 italic mb-4">Price: ₹199–₹399 (3–5 posts)</p>
+                    <p class="text-gray-200">Canva-designed posts for students or small brands.</p>
                 </div>
 
-                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg fade-in-section border border-white/20">
                     <div class="flex items-start mb-4">
                         <span class="text-2xl mr-3">🌐</span>
-                        <h3 class="text-xl font-semibold">Personal Portfolio Webpage</h3>
+                        <h3 class="text-xl font-semibold text-white">Personal Portfolio Webpage</h3>
                     </div>
-                    <p class="text-gray-600 italic mb-4">Price: ₹799–₹1,499</p>
-                    <p>1-page responsive site using Cursor AI + Inter font.</p>
+                    <p class="text-gray-200 italic mb-4">Price: ₹799–₹1,499</p>
+                    <p class="text-gray-200">1-page responsive site using Cursor AI + Inter font.</p>
                 </div>
 
-                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg fade-in-section border border-white/20">
                     <div class="flex items-start mb-4">
                         <span class="text-2xl mr-3">🎯</span>
-                        <h3 class="text-xl font-semibold">Presentation Slides</h3>
+                        <h3 class="text-xl font-semibold text-white">Presentation Slides</h3>
                     </div>
-                    <p class="text-gray-600 italic mb-4">Price: ₹699–₹999 for 10–12 slides</p>
-                    <p>Script via ChatGPT, then custom designed in Canva.</p>
+                    <p class="text-gray-200 italic mb-4">Price: ₹699–₹999 for 10–12 slides</p>
+                    <p class="text-gray-200">Script via ChatGPT, then custom designed in Canva.</p>
                 </div>
 
-                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg fade-in-section border border-white/20">
                     <div class="flex items-start mb-4">
                         <span class="text-2xl mr-3">🎨</span>
-                        <h3 class="text-xl font-semibold">Logo & Branding Pack</h3>
+                        <h3 class="text-xl font-semibold text-white">Logo & Branding Pack</h3>
                     </div>
-                    <p class="text-gray-600 italic mb-4">Price: ₹399–₹799 per logo</p>
-                    <p>3 design variations, clean vector output.</p>
+                    <p class="text-gray-200 italic mb-4">Price: ₹399–₹799 per logo</p>
+                    <p class="text-gray-200">3 design variations, clean vector output.</p>
                 </div>
 
-                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg fade-in-section border border-white/20">
                     <div class="flex items-start mb-4">
                         <span class="text-2xl mr-3">💻</span>
-                        <h3 class="text-xl font-semibold">Small Code Snippets</h3>
+                        <h3 class="text-xl font-semibold text-white">Small Code Snippets</h3>
                     </div>
-                    <p class="text-gray-600 italic mb-4">Price: ₹199–₹399</p>
-                    <p>Cursor-generated HTML/CSS/JS (e.g., navbars, buttons).</p>
+                    <p class="text-gray-200 italic mb-4">Price: ₹199–₹399</p>
+                    <p class="text-gray-200">Cursor-generated HTML/CSS/JS (e.g., navbars, buttons).</p>
                 </div>
 
-                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg fade-in-section border border-white/20">
                     <div class="flex items-start mb-4">
                         <span class="text-2xl mr-3">🔍</span>
-                        <h3 class="text-xl font-semibold">SEO Tags & Meta Description</h3>
+                        <h3 class="text-xl font-semibold text-white">SEO Tags & Meta Description</h3>
                     </div>
-                    <p class="text-gray-600 italic mb-4">Price: ₹399–₹799 for 5 pages</p>
-                    <p>AI-optimized metadata to improve discoverability.</p>
+                    <p class="text-gray-200 italic mb-4">Price: ₹399–₹799 for 5 pages</p>
+                    <p class="text-gray-200">AI-optimized metadata to improve discoverability.</p>
                 </div>
 
-                <div class="glass-effect gradient-border hover-lift p-6 rounded-lg fade-in-section">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg fade-in-section border border-white/20">
                     <div class="flex items-start mb-4">
                         <span class="text-2xl mr-3">✍️</span>
-                        <h3 class="text-xl font-semibold">Blog/Content Writing</h3>
+                        <h3 class="text-xl font-semibold text-white">Blog/Content Writing</h3>
                     </div>
-                    <p class="text-gray-600 italic mb-4">Price: ₹399–₹799 per article</p>
-                    <p>Lightly edited AI drafts for blogs or landing pages (800–1,000 words).</p>
+                    <p class="text-gray-200 italic mb-4">Price: ₹399–₹799 per article</p>
+                    <p class="text-gray-200">Lightly edited AI drafts for blogs or landing pages (800–1,000 words).</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- What to Expect Section -->
-    <section class="py-20 px-4 md:px-8">
+    <section class="py-20 px-4 md:px-8 section-gradient-light">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold mb-6 text-center fade-in-section">What to Expect</h2>
             <p class="text-center text-gray-600 mb-12 fade-in-section">As a new service, I'm excited to earn your trust through these commitments:</p>
@@ -377,7 +509,7 @@
     </section>
 
     <!-- Blog Section -->
-    <section class="py-20 px-4 md:px-8 bg-gray-50">
+    <section class="py-20 px-4 md:px-8 section-gradient-dark">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold mb-4 text-center fade-in-section">Blog</h2>
             <p class="text-center mb-12 text-gray-600 fade-in-section">Coming Soon</p>
@@ -399,7 +531,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 md:px-8">
+    <section id="contact" class="py-20 px-4 md:px-8 section-gradient-light">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl font-bold mb-4 text-center fade-in-section">Get in Touch</h2>
             <div class="text-center mb-12">
