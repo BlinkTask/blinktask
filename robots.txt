@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://blinktask.com/sitemap.xml
-
-# Allow all web crawlers to access all content
-# Sitemap helps search engines discover and index all pages 
